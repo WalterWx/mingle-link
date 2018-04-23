@@ -3,5 +3,8 @@
 <% @events.each do |event| %>
 <p><%= event.name %></p>
 <p><%= event.date %></p>
-<p><%= event.description %></p>
-<% end %>
+<p><%= event.unique_code %></p>
+<%= link_to "More",event_path(event) %>
+<% end %><br>
+
+<h3><%= link_to 'Create', new_event_path(@event) %></h3>

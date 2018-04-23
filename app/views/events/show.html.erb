@@ -1,4 +1,8 @@
 
 <p><%= @event.name %></p>
 <p><%= @event.date %></p>
-<p><%= @event.description %></p>
+<p><%= @event.unique_code%></p>
+
+<%= link_to 'Edit', edit_event_path(@event) %>
+<%= link_to 'Main', main_path %>
+

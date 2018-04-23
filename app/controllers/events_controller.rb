@@ -18,6 +18,10 @@ class EventsController < ApplicationController
   def create
 
   	@event = Event.new(event_params)
+  	@event.show = true
+
+# taken from https://web.archive.org/web/20121026000606/http://blog.logeek.fr/2009/7/2/creating-small-unique-tokens-in-ruby
+  	@event.unique_code = rand(36**8).to_s(36)
   	
   	if (@event.save)
   		redirect_to @event
