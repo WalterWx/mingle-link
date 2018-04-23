@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-  	@events = Event.all
+  	@events = Event.all.order(date: :asc)
   end
 
   def show
@@ -38,12 +38,12 @@ class EventsController < ApplicationController
   	end
   end
 
-  def destroy
-  	@event = Event.find(params[:id])
-  	@event.destroy
-  	redirect_to events_path
+  # def destroy
+  # 	@event = Event.find(params[:id])
+  # 	@event.destroy
+  # 	redirect_to events_path
 
-  end
+  # end
 
   private 
 

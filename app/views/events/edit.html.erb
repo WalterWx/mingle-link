@@ -23,8 +23,6 @@
 	<%= f.submit %>
 </p>
 <!-- Think of how to make the field for the event not to show instead of deleting event -->
-	<%= link_to 'delete event', @event, 
-				method: :delete,
-				data: {confirm: 'Are you sure?'} %>
+<% button_to "Update", event, method: :put, params: {show: false} %>
 
 <% end %>
