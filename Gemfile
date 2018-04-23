@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.5'
 
+# Semantic UI assets
+
+gem 'less-rails-semantic_ui', '~> 2.3.1'
+gem 'autoprefixer-rails', '~> 8.3.0'
+gem 'therubyracer'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
