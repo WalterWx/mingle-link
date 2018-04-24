@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
 
 
-	resources :events
+	resources :events do
+		resources :groups
+	end
+
 	get '/events/', to: 'events#index', as: 'main'
+
 
 
 
