@@ -258,6 +258,9 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
+	## To delete off later before publishing
+	config.omniauth :linkedin, "812316hwj1q2me", "9Zk7sM9o5UYuZoso"
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
