@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_24_034111) do
+ActiveRecord::Schema.define(version: 2018_04_24_053542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,43 @@ ActiveRecord::Schema.define(version: 2018_04_24_034111) do
   create_table "events_users", id: false, force: :cascade do |t|
     t.bigint "event_id", null: false
     t.bigint "user_id", null: false
+    t.string "user_role"
     t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
     t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "creator"
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_groups_on_event_id"
+  end
+
+  create_table "groups_interests", id: false, force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "interest_id", null: false
+    t.index ["group_id", "interest_id"], name: "index_groups_interests_on_group_id_and_interest_id"
+    t.index ["interest_id", "group_id"], name: "index_groups_interests_on_interest_id_and_group_id"
+  end
+
+  create_table "groups_users", id: false, force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
+    t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string "title"
+  end
+
+  create_table "interests_users", id: false, force: :cascade do |t|
+    t.bigint "interest_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["interest_id", "user_id"], name: "index_interests_users_on_interest_id_and_user_id"
+    t.index ["user_id", "interest_id"], name: "index_interests_users_on_user_id_and_interest_id"
+  end
+
+  add_foreign_key "groups", "events"
 end
