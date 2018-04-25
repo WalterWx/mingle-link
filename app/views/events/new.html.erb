@@ -1,6 +1,8 @@
+
 <div class="ui container">
+
 <h1>Add Event</h1>
-<%=form_for :event, url: events_path, :html => {:class => 'ui form'} do |f| %>
+<%=form_for :event, url: events_path, :html => {:class => 'form'} do |f| %>
 
 <p>
     <%= f.label "Event Name" %>
@@ -15,7 +17,9 @@
 </p>
 
 <p>
+
     <%= f.submit :class => 'ui button' %>
+
 </p>
 <% end %>
 </div>

@@ -1,3 +1,4 @@
+<div class="ui container">
 <h1>List of all events</h1>
 <!-- shows list of events except for those where show == false -->
 <% @events.each do |event| %>
@@ -10,3 +11,4 @@
 <% end %>
 
 <h3><%= link_to 'Create', new_event_path(@event) %></h3>
+</div>
