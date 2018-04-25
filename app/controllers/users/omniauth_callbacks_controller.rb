@@ -14,10 +14,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
    end
 
    def linkedin
-      omniauth_hash = request.env["omniauth.auth"]
-      user = User.create(uid: omniauth_hash["uid"], email: omniauth_hash["email"], provider: "linkedin" )
-      user.save
+#       omniauth_hash = request.env["omniauth.auth"]
 
+# u = User.new(:email => omniauth_hash["email"], :password => 'password', :password_confirmation => 'password' )
+# u.save
     # redirect_to root_path, :notice => "You've successfully connected your LinkedIn account."
      sign_in_with "LinkedIn"
    end
