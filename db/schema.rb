@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_04_24_054124) do
-=======
 ActiveRecord::Schema.define(version: 2018_04_25_021208) do
->>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,16 +25,6 @@ ActiveRecord::Schema.define(version: 2018_04_25_021208) do
     t.boolean "show"
   end
 
-<<<<<<< HEAD
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.boolean "valid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-=======
   create_table "events_users", id: false, force: :cascade do |t|
     t.bigint "event_id", null: false
     t.bigint "user_id", null: false
@@ -82,5 +68,5 @@ ActiveRecord::Schema.define(version: 2018_04_25_021208) do
   end
 
   add_foreign_key "groups", "events"
->>>>>>> master
+
 end
