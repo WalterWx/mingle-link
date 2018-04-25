@@ -3,9 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.5'
 
-# Semantic UI assets
-
-gem 'less-rails-semantic_ui', '~> 2.3.1'
 gem 'autoprefixer-rails', '~> 8.3.0'
 gem 'therubyracer'
 
