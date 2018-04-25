@@ -1,25 +1,49 @@
 
 <div class="ui container">
 
-<h1>Add Event</h1>
-<%=form_for :event, url: events_path, :html => {:class => 'form'} do |f| %>
+	<h1>Add Event</h1>
+	<%=form_for :event, url: events_path, :html => {:class => 'form'} do |f| %>
 
-<p>
-    <%= f.label "Event Name" %>
-    <%= f.text_field :name %>
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</p>
+	<p class="error">
+		<%= show_errors(@event, :title) %>
+	</p>
+	<p>
+		<%= f.label :datetime_start %><br>
+		<%= f.text_area :datetime_start %>
+	</p>
+	<p class="error">
+		<%= show_errors(@event, :datetime_start) %>
 
-    <%= f.label :date %>
-    <%= f.text_field :date %>
+		<p>
+			<%= f.label :datetime_end %><br>
+			<%= f.text_area :datetime_end %>
+		</p>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+		<p class="error">
+			<%= show_errors(@event, :datetime_end) %>
 
-</p>
+			<p>
+				<%= f.label :description %><br>
+				<%= f.text_area :description %>
+			</p>
+			<p class="error">
+				<%= show_errors(@event, :description) %>
 
-<p>
+				<p>
+					<%= f.label :location %><br>
+					<%= f.text_area :location %>
+				</p>
+				<p class="error">
+					<%= show_errors(@event, :location) %>
 
-    <%= f.submit :class => 'ui button' %>
+					<p>
 
-</p>
-<% end %>
-</div>
+						<%= f.submit :class => 'ui button' %>
+
+					</p>
+					<% end %>
+				</div>

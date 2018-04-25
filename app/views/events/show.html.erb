@@ -1,7 +1,10 @@
-<%= @event.name %><br>
-<%= @event.date %><br>
-<%= @event.unique_code%><br>
+<%= @event.title %><br>
 <%= @event.description%><br>
+<%= @event.datetime_start%><br>
+<%= @event.datetime_end%><br>
+<%= @event.event_id%><br>
+<%= @event.location%><br>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %><br>
 <%= link_to 'Main', main_path %>

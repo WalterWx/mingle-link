@@ -41,7 +41,7 @@ def create
 
   def destroy
     @group = Group.find(params[:id])
-    @group.show = false
+    @group.active = false
     @group.save
     redirect_to event_groups_path
 

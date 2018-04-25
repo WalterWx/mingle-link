@@ -2,10 +2,12 @@
 <h1>List of all events</h1>
 <!-- shows list of events except for those where show == false -->
 <% @events.each do |event| %>
-<% if (event.show != false) %>
-<p><%= event.name %></p>
-<p><%= event.date %></p>
-<p><%= event.unique_code %></p>
+<% if (event.active != false) %>
+<p><%= event.title %></p>
+<p><%= event.datetime_start %></p>
+<p><%= event.datetime_end %></p>
+<p><%= event.location %></p>
+<p><%= event.event_id %></p>
 <%= link_to "More",event_path(event) %>
 <% end %>
 <% end %>
