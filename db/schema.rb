@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_24_053542) do
+ActiveRecord::Schema.define(version: 2018_04_25_021208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_04_24_053542) do
     t.string "description"
     t.string "creator"
     t.bigint "event_id"
+    t.boolean "show"
     t.index ["event_id"], name: "index_groups_on_event_id"
   end
 
@@ -84,4 +85,5 @@ ActiveRecord::Schema.define(version: 2018_04_24_053542) do
   end
 
   add_foreign_key "groups", "events"
+
 end

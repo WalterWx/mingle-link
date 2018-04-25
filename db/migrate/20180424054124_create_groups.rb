@@ -1,11 +1,11 @@
 class CreateGroups < ActiveRecord::Migration[5.2]
   def change
     create_table :groups do |t|
-      t.string :title
+      t.string :name
       t.string :description
-      t.string :creator
-    end
+      t.boolean :valid
 
-    add_reference :groups, :event, foreign_key: true
+      t.timestamps
+    end
   end
 end

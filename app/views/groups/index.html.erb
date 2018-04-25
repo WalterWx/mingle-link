@@ -1,0 +1,11 @@
+<h1>List of all groups</h1>
+<!-- shows list of events except for those where show == false -->
+<% @groups.each do |group| %>
+<% if (group.show != false) %>
+<p>Event Id: <%= group.event_id %></p>
+<p>Group Id: <%= group.id %></p>
+<p>Group Title: <%= group.title %></p>
+<% end %>
+<% end %>
+
+<h3><%= link_to 'Create New Group', new_event_group_path %></h3>

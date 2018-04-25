@@ -1,25 +1,25 @@
 
-<!-- Redo this part. -->
 <div class="ui container">
+
 <h1>Add Event</h1>
-<%=form_for :event, url: events_path, :html => {:class => 'ui form'} do |f| %>
+<%=form_for :event, url: events_path, :html => {:class => 'form'} do |f| %>
 
 <p>
-	<%= f.label "Event Name" %>
-	<%= f.text_field :name %><br>
-	<%= f.label :date %>
-	<%= f.text_field :date %><br>
-	<%= f.label :description %>
-	<%= f.text_area :description %>
+    <%= f.label "Event Name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
 
 </p>
 
 <p>
-	<%= f.submit :class => 'ui button' %>
+
+    <%= f.submit :class => 'ui button' %>
+
 </p>
 <% end %>
 </div>
-
-
-
-  
