@@ -6,6 +6,12 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     assert_not event.save
   end
 
-  # test "redirect user to login page if not signed in" do
+  test "should save event if all parameters are filled" do
+    event = Event.new(title: 'Event 1', description: 'Description', 
+                      datetime_start: '2018-03-11 14:21:22',
+                      datetime_end: '2018-03-12 14:21:22',
+                      location: 'Singapore')
+    assert event.save
+  end
     
 end
