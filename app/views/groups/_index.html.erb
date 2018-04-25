@@ -1,0 +1,13 @@
+<div class="ui container">
+<h1>List of all groups</h1>
+<!-- shows list of events except for those where show == false -->
+<% @event.groups.each do |group| %>
+<% if (group.active != false) %>
+<p><%= group.id %>: <%= group.title %></p>
+<%= link_to '[X] Remove Group', [group.event, group], 
+				method: :delete,
+				data: {confirm: 'Are you sure?'} %>
+<%= link_to '[X] Edit Group', edit_event_group_path(group.event, group) %>
+<% end %>
+<% end %>
+</div>
