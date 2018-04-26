@@ -1,0 +1,25 @@
+<div class="ui container">
+
+<h1>Add group</h1>
+
+<%=form_for ([@event, @event.groups.build]), :html => {:class => 'form'} do |f| %>
+<p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <p class="error">
+  	<%= show_errors(@group, :title) %>
+</p>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <p class="error">
+  <%= show_errors(@group, :description) %>
+</p>
+
+</p>
+
+<p>
+    <%= f.submit :class => 'ui button' %>
+</p>
+<% end %>
+</div>

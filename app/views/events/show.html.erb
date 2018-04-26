@@ -1,8 +1,19 @@
-<%= @event.name %><br>
-<%= @event.date %><br>
-<%= @event.unique_code%><br>
-<%= @event.description%><br>
+<div class="ui container"
 
-<%= link_to 'Edit', edit_event_path(@event) %><br>
-<%= link_to 'Main', main_path %>
+<h1><%= @event.title %><br><h1>
+<h2>Description: <%= @event.description%></h2>
+<h2>Start Date: <%= @event.datetime_start%></h2>
+<h2>End Date:<%= @event.datetime_end%></h2>
+<h2>Event ID:<%= @event.event_id%></h2>
+<h2>Event Location<%= @event.location%></h2>
 
+
+
+<h1><%= link_to 'Edit', edit_event_path(@event) %>
+<%= link_to 'Main', main_path %></h1>
+
+<%= render 'groups/index' %>
+<br>
+<%= render 'groups/new' %>
+
+</div>

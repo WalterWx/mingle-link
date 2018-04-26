@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
+<<<<<<< HEAD
          :recoverable, :rememberable, :trackable, :validatable,
   	 :omniauthable, omniauth_providers: %i[linkedin]
 
@@ -35,3 +36,7 @@ open('myfile.out', 'w') { |f|
   return_user
     end
 end
+=======
+         :recoverable, :rememberable, :trackable, :validatable
+end
+>>>>>>> 9a91fe802d9352716deef1801635d7e1607c1d2e
