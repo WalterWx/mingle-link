@@ -13,14 +13,22 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
 <div class="ui container" id="cards">
+
 	<h3>Upcoming events</h3>
-	<% @events.each do |event| %>
-	<% if (event.active != false) %>
 	<div class="ui card">
-		<div class="content">
+	<div class="center aligned content">
+		<h3><%= link_to 'Create new event', new_event_path(@event) %></h3>
+	</div>
+	</div>
+
+	<% @events.each do |event| %>
+	<div class="ui raised card">
+	<div class="content">
+		<% if (event.active != false) %>
 			<div class="meta"><%= event.datetime_start %> to <%= event.datetime_end %></div>
 			<div class="meta"><%= event.location.titleize %></div>
 			<div class="header"><%= event.title.titleize %></div>
@@ -35,4 +43,4 @@
 	</div>
 </div>
 
-  
+
