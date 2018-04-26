@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  	
+    has_many :events_users
+  	has_many :events, through: :events_users
+    has_many :groups_users
+  	has_many :groups, through: :groups_users
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,7 +30,7 @@ class User < ApplicationRecord
   			user.public_profile_url = auth.info.urls["public_profile"]
   			user.location = auth.info.token
   			user.image = auth.info.image
-  			
+
   		end
   	end
 
