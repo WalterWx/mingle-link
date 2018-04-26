@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+	devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
+
+	resources :users, only: [:index]
 
 	get '/events/:event_id/groups/new', to: 'groups#new', as: 'groups'
 	resources :events do
