@@ -1,16 +1,37 @@
 <div class="ui container">
-<h1>List of all events</h1>
-<!-- shows list of events except for those where show == false -->
-<% @events.each do |event| %>
-<% if (event.active != false) %>
-<p><%= event.title %></p>
-<p><%= event.datetime_start %></p>
-<p><%= event.datetime_end %></p>
-<p><%= event.location %></p>
-<p><%= event.event_id %></p>
-<%= link_to "More",event_path(event) %>
-<% end %>
-<% end %>
-
-<h3><%= link_to 'Create', new_event_path(@event) %></h3>
+	<div class="ui tiny two steps">
+		<div class="active step">
+			<div class="content">
+				<div class="title" id="join_group">Join a group</div>
+				<div class="description">Click 'more' under an event to view details and join a group</div>
+			</div>
+		</div>
+		<div class="active step">
+			<div class="content">
+				<div class="title" id="find_group">Mingle with your group</div>
+				<div class="description"><p>Meet at the stated time and venue and start mingling.</p></div>
+			</div>
+		</div>
+	</div>
 </div>
+
+<div class="ui container" id="cards">
+	<% @events.each do |event| %>
+	<% if (event.active != false) %>
+	<div class="ui card">
+		<div class="content">
+			<div class="meta"><%= event.datetime_start %> to <%= event.datetime_end %></div>
+			<div class="meta"><%= event.location %></div>
+			<div class="header"><%= event.title %></div>
+			<div class="description"><%= link_to "More",event_path(event) %></div>
+		</div>
+		<div class="extra content">
+			<!-- insert the code for pulling number of users in the event -->
+			<p>XX people are keen to mingle with you</p>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
+</div>
+
+  

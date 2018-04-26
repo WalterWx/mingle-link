@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2018_04_25_075728) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.string "description"
-    t.boolean "valid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "creator"
+    t.bigint "event_id"
     t.boolean "active"
+    t.index ["event_id"], name: "index_groups_on_event_id"
   end
 
   create_table "groups_interests", id: false, force: :cascade do |t|
@@ -94,4 +94,5 @@ ActiveRecord::Schema.define(version: 2018_04_25_075728) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "groups", "events"
 end
