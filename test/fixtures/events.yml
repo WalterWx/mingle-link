@@ -1,13 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  date: 2018-04-23
-  unique_code: MyString
-  description: MyString
-
-two:
-  name: MyString
-  date: 2018-04-23
-  unique_code: MyString
-  description: MyString
+  event_id: eag23
+  title: Event 1 Title
+  description: Event 1 Description
+  datetime_start: 2018-04-23 22:11
+  datetime_end: 2018-04-23 22:11
+  location: General Assembly Pantry
+  active: true
