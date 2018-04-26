@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-  	@events = Event.all.order(date: :asc)
+  	@events = Event.all.order(datetime_start: :asc)
   end
 
   def show
@@ -18,10 +18,10 @@ class EventsController < ApplicationController
   def create
 
   	@event = Event.new(event_params)
-  	@event.show = true
+  	@event.active = true
 
 # taken from https://web.archive.org/web/20121026000606/http://blog.logeek.fr/2009/7/2/creating-small-unique-tokens-in-ruby
-  	@event.unique_code = rand(36**8).to_s(36)
+  	@event.event_id = rand(36**8).to_s(36)
   	
   	if (@event.save)
   		redirect_to @event
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   private 
 
   def event_params
-  	params.require(:event).permit(:name, :date, :description, :id, :show)
+  	params.require(:event).permit(:title, :datetime_start, :datetime_end, :location, :description, :location, :id, :active)
   end
 
 end

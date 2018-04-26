@@ -1,4 +1,7 @@
 class Group < ApplicationRecord
 
-	has_and_belongs_to_many :events
+	validates :title, :description, :event_id, presence: true
+	validates :title, uniqueness: true
+
+	belongs_to :event
 end
