@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_25_071513) do
+ActiveRecord::Schema.define(version: 2018_04_25_075728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2018_04_25_071513) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.string "description"
-    t.string "creator"
-    t.bigint "event_id"
+    t.boolean "valid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "active"
-    t.index ["event_id"], name: "index_groups_on_event_id"
   end
 
   create_table "groups_interests", id: false, force: :cascade do |t|
@@ -80,9 +80,18 @@ ActiveRecord::Schema.define(version: 2018_04_25_071513) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
+    t.integer "expires_at"
+    t.string "token"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "description"
+    t.string "public_profile_url"
+    t.string "location"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "groups", "events"
 end
