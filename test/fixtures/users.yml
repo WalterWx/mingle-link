@@ -4,8 +4,29 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: 
-  oauth_id: 424gsdf
+invalid: 
+  uid: booboo2
+  email: test@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   public_profile_url: https://linkedin.com/in/jerome-ng
-  first_name: Jerome
+  image: https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7042b0c0456ccd350c9ef83637b91092&auto=format&fit=crop&w=1949&q=80
+  sign_in_count: 2
+  provider: linkedin
+  token: f23fw3fadfq23wf6
+  first_name: Jerome_invalid
   last_name: Ng
+  description: handsome guy
+
+
+valid: 
+  uid: 
+  email: tst@example.com
+  encrypted_password: <%= BCrypt::Password.create('testpassword', cost: 5) %>
+  public_profile_url: https://linkedin.com/in/jerome-ng
+  image: https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7042b0c0456ccd350c9ef83637b91092&auto=format&fit=crop&w=1949&q=80
+  sign_in_count: 2
+  provider: linkedin
+  token: f23fw3fadfq23wf6
+  first_name: Jerome_invalid
+  last_name: Ng
+  description: handsome guy

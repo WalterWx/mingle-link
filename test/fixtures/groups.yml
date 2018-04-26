@@ -2,7 +2,7 @@
 
 one:
   event_id: 1
-  title: Event 1 Title
-  description: Event 1 Description
+  title: Group 1 Title
+  description: Group 1 Description
   creator: 1
   active: true
