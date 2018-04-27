@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def show
   	@event = Event.find(params[:id])
+    @groups = @event.groups()
   end
 
   def new
