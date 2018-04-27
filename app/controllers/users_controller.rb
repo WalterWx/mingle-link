@@ -4,4 +4,6 @@ class UsersController < ApplicationController
     @events = Event.all
   end
 
+  def homepage
+  end
 end
