@@ -9,23 +9,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
   </head>
 
   <body>
-    <div class="ui container">
-      <div class="ui secondary  menu">
-
-        <div class="right menu">
-          <a class="active item">
-            Home
-          </a>
-          <% if current_user %>
-            <%= link_to("Logout", "/users/sign_out", method: :delete, class:"ui item") %>
-          <% else %>
+<div class="ui container">
+<div class="ui secondary menu">
+  <div class="ui image header">
+      <%= image_tag "logo.jpg", class:"circular ui image" %>
+    </div>
+  <div class="right menu">
+    <% if current_user %>
+          <%= link_to("Logout", "/users/sign_out", method: :delete, class:"item") %>
+    <% else %>
             <%= link_to("Login", "/users/sign_in", class:"ui item") %>
           <% end %>
-        </div>
-      </div>
+</div>
+</div>
     </div>
 
 

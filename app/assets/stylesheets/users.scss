@@ -1,0 +1,60 @@
+
+#sign_up_container{
+	position: relative;
+}
+
+#image {
+	background-image: url("group.jpg");
+	background-size: cover;
+	height: 40%;
+	width: 100%;
+	z-index: 4
+
+}
+
+#main_message {
+	position: absolute;
+	text-align: center;
+	top: 200px;
+	color: teal;
+	width: 100%;
+	font-family: 'Lobster Two', cursive;
+	font-size: 20px;
+	background-color: white;
+	z-index: 4;
+	opacity: 0.8;
+}
+
+#sign_up_banner {
+	position: absolute;
+	z-index: 4;
+
+}
+
+#linkedin_logo {
+	position: absolute;
+	top: 235px;
+	left: 50px;
+	z-index: 5;
+	height: 70%;
+	width: 70%;
+}
+
+#steps_message {
+	background-color: teal;
+	color: white;
+	font-family: 'Lobster Two', cursive;
+	font-size: 15px;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding: 10px;
+	
+		p {
+		font-size: 20px;
+		}
+
+		li {
+		padding: 7px;
+		}
+	
+}
