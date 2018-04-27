@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
   </head>
 
@@ -18,11 +19,14 @@
       <%= image_tag "logo.jpg", class:"circular ui image" %>
     </div>
   <div class="right menu">
+    <% if current_user %>
           <%= link_to("Logout", "/users/sign_out", method: :delete, class:"item") %>
+    <% else %>
+            <%= link_to("Login", "/users/sign_in", class:"ui item") %>
+          <% end %>
 </div>
 </div>
-</div>
-</body>
+    </div>
 
 
 
