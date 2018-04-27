@@ -2,3 +2,7 @@
 <%= @group.description%><br>
 
 <%= link_to 'Edit', edit_event_group_path %><br>
+
+<% @list.each do |user| %>
+  <%= user.first_name %>
+<% end %>

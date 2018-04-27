@@ -11,6 +11,8 @@ class GroupsController < ApplicationController
 
   	@group = Group.find(params[:id])
     @group.event_id = params[:event_id]
+    @list = @group.users()
+
   end
 
   def edit
@@ -21,8 +23,11 @@ class GroupsController < ApplicationController
   def create
     
     @event = Event.find(params[:event_id])
-  	@group = @event.groups.create(group_params)
-  	redirect_to event_path(@event)
+  	@group = @event.groups.create(group_params)    
+    @groupuser = GroupsUser.create(user_id: current_user.id , group_id: @group.id)
+  	      File.write('a', @groupuser)
+
+    redirect_to event_path(@event)
   	
 
   end
