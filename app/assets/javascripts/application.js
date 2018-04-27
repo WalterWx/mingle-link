@@ -18,3 +18,4 @@
 //= require cable
 //= require semantic.min
 //= require semantic-calendar
+//= require calendar
