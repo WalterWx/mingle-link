@@ -2,8 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$teal-color: #1BB5AB; 
+$font-stack: 'Lobster Two', cursive;
+
+#conference_image {
+	background-image: url("conference2.jpg");
+	background-size: cover;
+	height: 15%;
+	width: 100%;
+
+
+		
+}
+
 #cards {
   padding-top: 20px; 
+  	
+  	h3 {
+  	color: $teal-color;
+  	}
+}
+
+a #header {
+	color: black;
+}
+#header {
+  	font-size: 22px;
+  	font-weight: 800;
+
+}
+
+#add_event {
+	background-color: $teal-color;
+		h4 a {
+			color: black;
+		}
 }
 
 #join_group, #find_group {
@@ -12,4 +45,12 @@
 
 body {
 font-family: 'Muli', sans-serif;
+}
+
+#new_event_form {
+	h3 {
+	color: $teal-color;
+	font-size: 22px;
+	padding-top: 10px;
+	}
 }

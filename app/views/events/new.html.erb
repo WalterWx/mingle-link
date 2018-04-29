@@ -1,7 +1,11 @@
+<div class="ui bordered image" id="conference_image">
 
-<div class="ui container">
+</div>
 
-	<h3>New Event</h3>
+<div class="ui container" id="new_event_form">
+<h3>Create New Event</h3>
+
+	
 	<%=form_for :event, url: events_path, :html => {:class => 'ui form'} do |f| %>
 	<p>
 		<%= f.text_field :title, :placeholder => 'Title' %>
@@ -13,7 +17,6 @@
 
     <div class="two fields">
       <div class="field">
-        <label>Start date</label>
         <div class="ui calendar" id="rangestart">
           <div class="ui input left icon">
             <i class="calendar icon"></i>
@@ -25,7 +28,6 @@
         </div>
       </div>
       <div class="field">
-        <label>End date</label>
         <div class="ui calendar" id="rangeend">
           <div class="ui input left icon">
             <i class="calendar icon"></i>
@@ -52,7 +54,9 @@
 							<%= f.submit 'Create Event', :class => 'ui button' %>
 						</p>
 						<% end %>
-					</div>
+					</div
+
+</div>
 </div>
 <script>$('#rangestart').calendar({type: 'date', endCalendar: $('#rangeend')});
 $('#rangeend').calendar({type: 'date', startCalendar: $('#rangestart')});</script>
