@@ -5,7 +5,11 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    if params[:id]
+      @event = Event.find_by_id(params[:id]) 
+    else
+      @event = Event.find_by_event_id(params[:event_id])
+    end
     @groups = @event.groups()
   end
 
