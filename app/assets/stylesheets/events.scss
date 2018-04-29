@@ -54,3 +54,21 @@ font-family: 'Muli', sans-serif;
 	padding-top: 10px;
 	}
 }
+
+#web_icon {
+	background-image: url("link.jpg");
+	background-size: cover;
+	width: 30px;
+	height: 30px;
+	margin-top: 10px;
+	position: relative;
+		p{
+		position: absolute;
+		margin-left: 30px;
+		margin-top: 10px;
+		text-decoration: underline;
+		font-weight: 800;
+		}
+
+
+}
