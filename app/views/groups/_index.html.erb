@@ -1,19 +1,28 @@
 
-<p>List of all groups</p>
-<!-- shows list of events except for those where show == false -->
+
+
+<p id="join_group">Join a group</p>
 <% @event.groups.each do |group| %>
-    <% if (group.active != false) %>
-        <p><%= group.id %>: <%= group.title %></p>
-        <%= link_to '[X] Remove Group', [group.event, group], 
+    	<% if (group.active != false) %>
+    	<div class="ui segment">
+       		<div id="group_title"><%= group.title %></div>
+            <div class="ui divider"></div>
+        	<div><%= group.description %></div>
+            <div class="ui divider"></div>
+        	<div class="ui container" id='group_buttons'>
+        	<button class="ui teal mini button" id="remove_group_button"><%= link_to 'Remove', [group.event, group], 
             method: :delete,
-            data: {confirm: 'Are you sure?'} %>
-        <%= link_to '[X] Edit Group', edit_event_group_path(group.event, group) %>
+            data: {confirm: 'Are you sure?'} %></button>
+         <button class="ui teal mini button" id="edit_group_button"><%= link_to 'Edit', edit_event_group_path(group.event, group) %></button>
         <% if GroupsUser.where("user_id = ? AND group_id = ?", current_user.id, group.id).empty? %>
-            <%= link_to '[X] Join Group', '/' + group.event.id.to_s + '/' + group.id.to_s,
-                method: :post %>
+            <button class="ui teal mini button"><%= link_to 'Join', '/' + group.event.id.to_s + '/' + group.id.to_s,
+                method: :post %></div>
         <% else %>
-            <%= link_to '[X] Leave Group', '/' + group.event.id.to_s + '/' + group.id.to_s,
-                method: :delete %>
-        <% end %>
+            <button class="ui teal mini button"><%= link_to 'Exit', '/' + group.event.id.to_s + '/' + group.id.to_s,
+                method: :delete %></button>
+                
+                <% end %>
+            </div>
+            </div>
     <% end %>
 <% end %>

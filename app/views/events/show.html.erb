@@ -1,31 +1,37 @@
 <div class="ui container">
 
-	<div class="ui raised card">
-		<div class="content">
+		<div class="content" id="event_index">
 			<div class="meta"><%= @event.datetime_start.to_formatted_s(:rfc822) %> to <%= @event.datetime_end.to_formatted_s(:rfc822) %></div>
 			<div class="meta"><%= @event.location.titleize %></div>
 
 			<div class="header" id="header"><%= @event.title.titleize %></div>
 			<br>
-			<div class="content"> <%= @event.description %></div>
+			<p> <%= @event.description %></p>
+			
 			<div class="ui container">
-			<%= link_to main_path do %>
-				<button class="ui tiny button">Back</button>
-			<% end %>
+
 			<%= link_to edit_event_path(@event) do %>
-				<button class="ui tiny button">Edit</button>
+				<button class="ui tiny fluid teal button">Edit</button>
 			<% end %>
+		</div>
+		</div>
+	
+  <div class="ui divider"></div>
+
 				<%= render 'groups/index' %>
 
-	
-	<br>
-		</div>
-		</div>
+</div>
+  <div class="ui divider"></div>
+		<div class="ui inverted teal segment">
 	<%= render 'groups/new' %>
 
-
-</div>
-
-
-
+			
+		</div>
+		<div class="ui container">
+			<div class="ui container">
+				<%= link_to main_path do %>
+			<button class="ui tiny teal fluid button">Back</button><% end %>
+			</div>
+		</div>
+			
 
