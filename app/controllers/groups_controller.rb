@@ -25,8 +25,6 @@ class GroupsController < ApplicationController
     @event = Event.find(params[:event_id])
   	@group = @event.groups.create(group_params)    
     @groupuser = GroupsUser.create(user_id: current_user.id , group_id: @group.id)
-  	      File.write('a', @groupuser)
-
     redirect_to event_path(@event)
   	
 

@@ -15,6 +15,7 @@
 <%= render 'groups/index' %>
 <br>
 <%= render 'groups/new' %>
-
+<% if policy(@event).show? %>
+hello
+<% end %>
 </div>
-

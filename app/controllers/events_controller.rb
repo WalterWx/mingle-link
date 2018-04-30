@@ -5,7 +5,19 @@ class EventsController < ApplicationController
   end
 
   def show
-  	@event = Event.find(params[:id])
+  # @event = Event.find(params[:id]).users
+  # authorize(@event, :show?)
+
+  # File.write('a', @event.id)
+  @event = Event.find(params[:id])
+
+  # if @event.update(post_params)
+  #   redirect_to @event
+  # else
+  #   render :edit
+  # end
+
+
     @groups = @event.groups()
   end
 
@@ -22,12 +34,14 @@ class EventsController < ApplicationController
     @user = User.where(id: current_user.id).first
     @event = @user.events.create(event_params)
     @event.active = true
+    @event.save
+    File.write('a', @event.events_users.first.user_id)
 
   # taken from https://web.archive.org/web/20121026000606/http://blog.logeek.fr/2009/7/2/creating-small-unique-tokens-in-ruby
   @event.event_id = rand(36**8).to_s(36)
 
   if (@event.save)
-    EventsUser.where('user_id = ' + current_user.id.to_s + ' and event_id = ' + @event.id.to_s).update_all(user_role: 'owner')
+    # EventsUser.where('user_id = ' + current_user.id.to_s + ' and event_id = ' + @event.id.to_s).update_all(user_role: 'owner')
     redirect_to @event
   else render 'new'
   end
