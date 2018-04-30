@@ -19,10 +19,8 @@ class GroupsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-    @group = @event.groups.create(group_params)    
+    @group = @event.groups.create!(group_params)    
     @groupuser = GroupsUser.create(user_id: current_user.id , group_id: @group.id)
-    File.write('a', @groupuser)
-
     redirect_to event_path(@event)
   end
 
@@ -39,13 +37,25 @@ class GroupsController < ApplicationController
     @group.active = false
     @group.save
     redirect_to event_path(@event)
+  end
 
+  def join_group
+    @group = Group.find_by_id(params[:id])
+    @groupuser = GroupsUser.create(user_id: current_user.id, group_id: @group.id)
+    redirect_to event_group_path(@group)
+  end
+
+  def leave_group
+    @event = Event.find(params[:event_id])
+    @group = Group.find(params[:id])
+    @groupuser = GroupsUser.destroy(user_id: current_user.id, group_id: @group.id)
+    redirect_to event_path(@event)
   end
 
   private
 
   def group_params
-    params.require(:group).permit(:title, :description, :id, :event_id)
+    params.require(:group).permit(:title, :description, :id, :event_id, :group_id)
   end
 
 end
