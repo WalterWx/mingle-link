@@ -1,58 +1,32 @@
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-<div class="ui middle aligned center aligned grid">
-  <div class="four wide column">
-    <h2 class="ui teal image header">
-      <%= image_tag "logo.jpg", class:"image" %>
-      <div class="content">
-        Sign-up for a new account
-      </div>
-    </h2>
-    <form class="ui large form">
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"E-mail address" , style: "background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; margin-bottom:10px;" %>
-
-      </div>
-        </div>
-        <div class="field">  
-          <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-    <%= f.password_field :password, autocomplete: "off", style:"background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;", placeholder:"Password" %>
-  
-  </div>
-        </div>
-        <div class="field" style="margin-top: 1em">
-         <div class="ui left icon input">
-            <i class="lock icon"></i>
-    <%= f.password_field :password_confirmation, autocomplete: "off", style:"background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;", placeholder:"Password again" %>
-  
-  </div>
-        </div>
- 
-
- 
-    <%= f.submit "Sign up",  class:"ui fluid large teal submit button", style: "margin-top:1em;" %>
-
-      </div>
-
-      <div class="ui error message"></div>
-
-    </form>
-
-    <div class="ui message">
-<%= render "devise/shared/links" %>    
-    </div>
-  </div>
+<div class="ui bordered image" id="image">
 </div>
 
+<div id="main_message">
+  <p>Mingle - networking has never been so easy</p>
+</div>
+<div class="ui container">
 
-<% end %>
+<div class="ui bordered image" id="linkedin_logo">
+  <a href="/users/auth/linkedin"><%= image_tag "linkedin.png", class: "ui centered image" %></a>
+</div>
+</div>
 
+<div id="use_mingle">
+  <h1>How to start mingling</h1>
+<div class="ui divider"></div>
+<ul>
+  <li>Enter the link provided by event organiser.</li>
+  <li>Sign up an account using your LinkedIn account.</li>
+  <li>Add your areas of interest to get recommendations on which group you can join to network during an event.</li>
+</ul>
+
+<div class="ui divider"></div>
+  <p>Add your areas of interest to get recommendations on which group you can join to network during an event.</p>
+<div class="ui divider"></div>
+  <p>Add a group that you are interested.</p>
+<div class="ui divider"></div>
+  <p>Physically join your group on the day of the event at the stated venue and time.</p>
+</div>
+
+<div id="use_mingle2">
+  <h1>Tips on networking</h1>

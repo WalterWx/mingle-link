@@ -8,22 +8,30 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
   </head>
 
   <body>
-<div class="ui container">
-<div class="ui secondary  menu">
 
+<div class="ui teal inverted secondary menu" id="menu">
+  <div class="left menu">
+    <div class="ui image">
+      <%= image_tag "logo.jpg", class:"ui image" %>
+    </div>
+</div>
   <div class="right menu">
-  <a class="active item">
-    Home
-  </a>
-          <%= link_to("Logout", "/users/sign_out", method: :delete, class:"ui item") %>
-   </div>
+    <div class="item">
+    <% if current_user %>
+          <%= link_to("Logout", "/users/sign_out", method: :delete, class:"item") %>
+    <% else %>
+            <%= link_to("Login", "/users/sign_up", class:"ui item") %>
+
+          <% end %>
+
 </div>
-</div>
-</div>
+    </div>
+  </div>
 
 
 
