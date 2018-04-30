@@ -11,7 +11,6 @@ class EventPolicy < ApplicationPolicy
 		end
 
 		def show?
-			 # @event.user_role == 'owner'
 
 
 		end

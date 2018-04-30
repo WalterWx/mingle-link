@@ -1,17 +1,14 @@
 <div class="ui container">
 
-<p>Add group</p>
+<p id="create_group_header">Create New Group</p>
 
 <%=form_for ([@event, @event.groups.build]), :html => {:class => 'ui form'} do |f| %>
 <p>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :placeholder => 'Title' %>
     <p class="error">
   	<%= show_errors(@group, :title) %>
 </p>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :placeholder => "Description" %>
     <p class="error">
   <%= show_errors(@group, :description) %>
 </p>

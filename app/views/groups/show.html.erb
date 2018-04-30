@@ -4,5 +4,6 @@
 <%= link_to 'Edit', edit_event_group_path %><br>
 
 <% @list.each do |user| %>
-  <%= user.first_name %>
+    <%= user.first_name %><br />
+    <a href="<%= user.public_profile_url %>">Link Up!</a>
 <% end %>

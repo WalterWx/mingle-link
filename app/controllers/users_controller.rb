@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    @events = Event.all
+    redirect_to events_path
   end
 
   def homepage
+  	redirect_to events_path
   end
 end

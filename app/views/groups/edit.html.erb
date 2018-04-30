@@ -1,25 +1,20 @@
-	<h1>Edit Group</h1>
-<%=form_for :group, url: event_group_path, method: :put do |f| %>
+<div class="ui container">
+<p id="edit_group_header">Edit Group</p>
+	<div class="ui form">
+		<%=form_for :group, url: event_group_path, method: :put do |f| %>
+		<p>
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+		</p>
 
-
-<p>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-
-</p>
-
-<p>
-	<%= f.label :description %><br>
-	<%= f.text_area :description %>
-</p>
-
-
-<p>
-	<%= f.submit %>
-</p>
-
-	<%= link_to 'Merge', event_group_path, 
-				method: :delete,
-				data: {confirm: 'Are you sure?'} %>
-
-<% end %>
+		<p>
+			<%= f.label :description %><br>
+			<%= f.text_area :description %>
+		</p>
+			<%= f.submit 'Edit', :class => 'ui teal button' %>
+			<%= link_to 'Merge', event_group_path, :class => 'ui teal button',
+						method: :delete,
+						data: {confirm: 'Are you sure?'} %>
+		<% end %>
+	</div>
+</div>

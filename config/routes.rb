@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 	end
 	get '/events/', to: 'events#index', as: 'main'
     get '/:event_id', to: 'events#show'
+    post '/:event_id/:id', to: 'groups#join_group'
+    delete '/:event_id/:id', to: 'groups#leave_group'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
