@@ -65,7 +65,7 @@ class GroupsController < ApplicationController
   def leave_group
     @event = Event.find(params[:event_id])
     @group = Group.find(params[:id])
-    @groupuser = GroupsUser.destroy(user_id: current_user.id, group_id: @group.id)
+    current_user.groups.delete(@group)
     redirect_to event_path(@event)
   end
 

@@ -2,13 +2,18 @@
 <p>List of all groups</p>
 <!-- shows list of events except for those where show == false -->
 <% @event.groups.each do |group| %>
-<% if (group.active != false) %>
-<p><%= group.id %>: <%= group.title %></p>
-<%= link_to '[X] Remove Group', [group.event, group], 
-				method: :delete,
-				data: {confirm: 'Are you sure?'} %>
-<%= link_to '[X] Edit Group', edit_event_group_path(group.event, group) %>
-<%= link_to '[X] Join Group', '/' + group.event.id.to_s + '/' + group.id.to_s,
+    <% if (group.active != false) %>
+        <p><%= group.id %>: <%= group.title %></p>
+        <%= link_to '[X] Remove Group', [group.event, group], 
+            method: :delete,
+            data: {confirm: 'Are you sure?'} %>
+        <%= link_to '[X] Edit Group', edit_event_group_path(group.event, group) %>
+        <% if GroupsUser.where("user_id = ? AND group_id = ?", current_user.id, group.id).empty? %>
+            <%= link_to '[X] Join Group', '/' + group.event.id.to_s + '/' + group.id.to_s,
                 method: :post %>
-<% end %>
+        <% else %>
+            <%= link_to '[X] Leave Group', '/' + group.event.id.to_s + '/' + group.id.to_s,
+                method: :delete %>
+        <% end %>
+    <% end %>
 <% end %>
