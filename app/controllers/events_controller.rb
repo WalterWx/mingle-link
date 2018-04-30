@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   def index
   	@events = Event.all.order(datetime_start: :asc)
 
+  end
+
   def show
     if params[:id]
       @event = Event.find_by_id(params[:id]) 

@@ -45,9 +45,12 @@
 				
 				<div class="meta"><%= event.location.titleize %></div>
 				<div class="header" id="header"><%= event.title.titleize %></div>
-				<div class="image" id="web_icon"><p class="meta"><%= event.event_id %></span></p></div>
-
 				<a class="ui teal right ribbon label"><%= event.users.count %> Minglers to connect</a>
+				<div class="meta"><span>Event URL:</span>
+					<a class="ui link"> http://www.mingle.link/<%= event.event_id %></a>
+				</div>
+
+				
 			</div>
 		<% end %>
 		<% end %>
