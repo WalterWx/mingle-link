@@ -4,15 +4,13 @@
 
 $teal-color: #1BB5AB; 
 $font-stack: 'Lobster Two', cursive;
+$brown-color: #3E260C;
 
 #conference_image {
 	background-image: url("conference2.jpg");
 	background-size: cover;
 	height: 15%;
 	width: 100%;
-
-
-		
 }
 
 #cards {
@@ -24,10 +22,10 @@ $font-stack: 'Lobster Two', cursive;
 }
 
 a #header {
-	color: black;
+	color: $brown-color;
 }
 #header {
-  	font-size: 22px;
+  	font-size: 17px;
   	font-weight: 800;
 
 }
@@ -35,12 +33,12 @@ a #header {
 #add_event {
 	background-color: $teal-color;
 		h4 a {
-			color: black;
+			color: $brown-color;
 		}
 }
 
 #join_group, #find_group {
-	color: black;
+	color: $brown-color;
 }
 
 body {
@@ -58,14 +56,14 @@ font-family: 'Muli', sans-serif;
 #web_icon {
 	background-image: url("link.jpg");
 	background-size: cover;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	margin-top: 10px;
 	position: relative;
 		p{
 		position: absolute;
 		margin-left: 30px;
-		margin-top: 10px;
+		margin-top: 5px;
 		text-decoration: underline;
 		font-weight: 800;
 		}

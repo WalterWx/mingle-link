@@ -69,13 +69,26 @@ $teal-color: #1BB5AB;
 		text-align: center;
 		font-size: 28px;
 		}
-	
-		p {
-		font-size: 20px;
-		}
 
 		li {
-		padding: 7px;
+		padding: 10px;
+		}
+	
+	
+}
+
+#use_mingle2 {
+	color: $teal-color;
+	text-align: center;
+	font-size: 15px;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding: 10px;
+
+		h1 {
+			font: 100% $font-stack;
+			text-align: center;
+			font-size: 28px;
 		}
 	
 }
