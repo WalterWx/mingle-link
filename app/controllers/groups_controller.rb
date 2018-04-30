@@ -41,7 +41,9 @@ class GroupsController < ApplicationController
 
   def join_group
     @group = Group.find_by_id(params[:id])
-    @groupuser = GroupsUser.create(user_id: current_user.id, group_id: @group.id)
+    if  GroupsUser.where("user_id = ? AND group_id = ?", current_user.id, @group.id).empty?
+      @groupuser = GroupsUser.create(user_id: current_user.id, group_id: @group.id)
+    end
     redirect_to event_group_path(@group)
   end
 

@@ -9,9 +9,6 @@
 				data: {confirm: 'Are you sure?'} %>
 <%= link_to '[X] Edit Group', edit_event_group_path(group.event, group) %>
 <%= link_to '[X] Join Group', '/' + group.event.id.to_s + '/' + group.id.to_s,
-                method: :post,
-                controller: :groups,
-                action: :join_group,
-				data: {confirm: 'Join Group?'} %>
+                method: :post %>
 <% end %>
 <% end %>
