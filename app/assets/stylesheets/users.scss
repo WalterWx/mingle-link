@@ -1,3 +1,19 @@
+$font-stack: 'Lobster Two', cursive;
+$teal-color: #1BB5AB;
+
+
+#logo {
+	font: 100% $font-stack;
+	font-size: 20px;
+}
+
+
+#menu {
+	
+	a {
+	margin-right:10px;
+	}
+}
 
 #sign_up_container{
 	position: relative;
@@ -16,7 +32,7 @@
 	position: absolute;
 	text-align: center;
 	top: 200px;
-	color: teal;
+	color: $teal-color;
 	width: 100%;
 	font-family: 'Lobster Two', cursive;
 	font-size: 20px;
@@ -36,25 +52,43 @@
 	top: 235px;
 	left: 50px;
 	z-index: 5;
-	height: 70%;
 	width: 70%;
 }
 
-#steps_message {
-	background-color: teal;
+#use_mingle {
+	background-color: $teal-color;
 	color: white;
-	font-family: 'Lobster Two', cursive;
+
 	font-size: 15px;
 	margin-top:10px;
 	margin-bottom:10px;
 	padding: 10px;
-	
-		p {
-		font-size: 20px;
+
+		h1 {
+		font: 100% $font-stack;
+		text-align: center;
+		font-size: 28px;
 		}
 
 		li {
-		padding: 7px;
+		padding: 10px;
+		}
+	
+	
+}
+
+#use_mingle2 {
+	color: $teal-color;
+	text-align: center;
+	font-size: 15px;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding: 10px;
+
+		h1 {
+			font: 100% $font-stack;
+			text-align: center;
+			font-size: 28px;
 		}
 	
 }

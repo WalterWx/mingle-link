@@ -1,8 +1,8 @@
 <div class="ui container">
 
-<h1>Add group</h1>
+<p>Add group</p>
 
-<%=form_for ([@event, @event.groups.build]), :html => {:class => 'form'} do |f| %>
+<%=form_for ([@event, @event.groups.build]), :html => {:class => 'ui form'} do |f| %>
 <p>
     <%= f.label :title %>
     <%= f.text_field :title %>
