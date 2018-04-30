@@ -1,12 +1,29 @@
 
-<p>List of all groups</p>
 <!-- shows list of events except for those where show == false -->
-<% @event.groups.each do |group| %>
-<% if (group.active != false) %>
-<p><%= group.id %>: <%= group.title %></p>
-<%= link_to '[X] Remove Group', [group.event, group], 
+
+	<p id="join_group">Join a group</p>
+
+	<% @event.groups.each do |group| %>
+<!-- add message if no active group, then ask if want to create one -->
+		
+		<% if (group.active != false) %>
+		<div class="ui segment">
+		<div><%= group.title %></div>
+		<div><%= group.description %></div>
+		<div class="ui container">
+		<button class="ui mini button" id="remove_group_button"><%= link_to 'Remove Group', [group.event, group], 
 				method: :delete,
 				data: {confirm: 'Are you sure?'} %>
-<%= link_to '[X] Edit Group', edit_event_group_path(group.event, group) %>
-<% end %>
-<% end %>
+			</button>
+		<button class="ui mini button" id="edit_group_button"><%= link_to 'Edit Group', edit_event_group_path(group.event, group) %></button>
+	</div>
+</div>
+		<% end %>
+		<% end %>
+
+
+
+
+
+
+
