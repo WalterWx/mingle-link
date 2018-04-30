@@ -3,7 +3,7 @@
 		<div class="active step">
 			<div class="content">
 				<div class="title" id="join_group">Join a group</div>
-				<div class="description">Click 'more' under an event to view details and join a group.</div>
+				<div class="description">Tap an event to join a group.</div>
 			</div>
 		</div>
 		<div class="active step">
@@ -16,28 +16,43 @@
 
 </div>
 
-<div class="ui container" id="cards">
 
-	<h3>Upcoming events</h3>
+<div class="ui container" id="cards">
 	<div class="ui card">
-	<div class="center aligned content">
-		<h3><%= link_to 'Create new event', new_event_path(@event) %></h3>
+	<div class="center aligned content" id="add_event">
+		<h4><%= link_to '+ New Event', new_event_path(@event) %></h4>
 	</div>
 	</div>
+
+<div class="ui horizontal divider">Upcoming Events</div>
 
 	<% @events.each do |event| %>
 	<div class="ui raised card">
-	<div class="content">
-		<% if (event.active != false) %>
-			<div class="meta"><%= event.datetime_start %> to <%= event.datetime_end %></div>
-			<div class="meta"><%= event.location.titleize %></div>
-			<div class="header"><%= event.title.titleize %></div>
-			<div class="description"><%= link_to "More",event_path(event) %></div>
-		</div>
-		<div class="extra content">
-			<!-- insert the code for pulling number of users in the event -->
-			<p>XX people want to mingle with you.</p>
-		</div>
+		<div class="content">
+			<div class="ui top right attached label">
+				<% (Time.zone.now.to_date...event.datetime_start).count %>
+				<% time_left = (Time.zone.now.to_date...event.datetime_start).to_a.size %> 
+					<% if (time_left == 0) %>
+					<p> Today </p>
+					<% else %>
+					<p><%= time_left %> more days </p>
+					<% end %>
+			</div>
+			<br>
+		<%= link_to event_path(event) do %>
+			<% if (event.active != false) %>
+				<div class="meta"><%= event.datetime_start.to_formatted_s(:rfc822) %> to <%= event.datetime_end.to_formatted_s(:rfc822) %></div>
+				
+				<div class="meta"><%= event.location.titleize %></div>
+				<div class="header" id="header"><%= event.title.titleize %></div>
+				<a class="ui teal right ribbon label"><%= event.users.count %> Minglers to connect</a>
+				<div class="meta"><span>Event URL:</span>
+					<a class="ui link"> http://www.mingle.link/<%= event.event_id %></a>
+				</div>
+
+				
+			</div>
+		<% end %>
 		<% end %>
 		<% end %>
 	</div>
