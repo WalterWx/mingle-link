@@ -1,29 +1,28 @@
 
-<!-- shows list of events except for those where show == false -->
-
-	<p id="join_group">Join a group</p>
-
-	<% @event.groups.each do |group| %>
-<!-- add message if no active group, then ask if want to create one -->
-		
-		<% if (group.active != false) %>
-		<div class="ui segment">
-		<div><%= group.title %></div>
-		<div><%= group.description %></div>
-		<div class="ui container">
-		<button class="ui mini button" id="remove_group_button"><%= link_to 'Remove Group', [group.event, group], 
-				method: :delete,
-				data: {confirm: 'Are you sure?'} %>
-			</button>
-		<button class="ui mini button" id="edit_group_button"><%= link_to 'Edit Group', edit_event_group_path(group.event, group) %></button>
-	</div>
-</div>
-		<% end %>
-		<% end %>
 
 
-
-
-
-
-
+<p id="join_group">Join a group</p>
+<% @event.groups.each do |group| %>
+    	<% if (group.active != false) %>
+    	<div class="ui segment">
+       		<div id="group_title"><%= group.title %></div>
+            <div class="ui divider"></div>
+        	<div><%= group.description %></div>
+            <div class="ui divider"></div>
+        	<div class="ui container" id='group_buttons'>
+        	<button class="ui teal mini button" id="remove_group_button"><%= link_to 'Remove', [group.event, group], 
+            method: :delete,
+            data: {confirm: 'Are you sure?'} %></button>
+         <button class="ui teal mini button" id="edit_group_button"><%= link_to 'Edit', edit_event_group_path(group.event, group) %></button>
+        <% if GroupsUser.where("user_id = ? AND group_id = ?", current_user.id, group.id).empty? %>
+            <button class="ui teal mini button"><%= link_to 'Join', '/' + group.event.id.to_s + '/' + group.id.to_s,
+                method: :post %></div>
+        <% else %>
+            <button class="ui teal mini button"><%= link_to 'Exit', '/' + group.event.id.to_s + '/' + group.id.to_s,
+                method: :delete %></button>
+                
+                <% end %>
+            </div>
+            </div>
+    <% end %>
+<% end %>

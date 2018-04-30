@@ -8,11 +8,27 @@ $brown-color: #3E260C;
 
 #join_group {
 	font: 100% $font-stack;
+	color: $teal-color;
 	text-align: center;
 	font-size: 22px;
 }
 
-#remove_group_button {
+#group_title {
+	font-weight: 800;
+	}
+
+#group_buttons {
+
+	display: flex;
+	justify-content: space-between;
+		a {
+		color: white;
+		}
+}
+
+#edit_group_header {
+	font: 100% $font-stack;
 	text-align: center;
-	color: red;
+	font-size: 22px;
+	color: $teal-color;
 }

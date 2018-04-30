@@ -37,6 +37,11 @@ a #header {
 		}
 }
 
+#join_group_guide {
+	color: $brown-color;
+}
+
+
 #join_group, #find_group {
 	color: $brown-color;
 }
@@ -81,3 +86,8 @@ font-family: 'Muli', sans-serif;
 	}
 }
 
+#edit_event_header {
+	font: 100% $font-stack;
+	text-align: center;
+	font-size: 22px;
+}
