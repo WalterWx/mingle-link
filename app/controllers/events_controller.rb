@@ -1,17 +1,31 @@
 class EventsController < ApplicationController
+before_action :authenticate_user!
 
   def index
-  	@events = Event.all.order(datetime_start: :asc)
+    @user = User.where(id: current_user.id).first
+    @events = @user.events.all.order(datetime_start: :asc)
 
   end
 
   def show
-    if params[:id]
+    @user = User.where(id: current_user.id).first
+
+# If the user try to enter events by id that he is not already part of, he is rejected
+    if @user.events.find_by_id(params[:id]) != nil
       @event = Event.find_by_id(params[:id]) 
-    else
-      @event = Event.find_by_event_id(params[:event_id])
+
+# If a link is used
+    elsif Event.find_by( event_id: params[:id]) != nil
+      @event = Event.find_by( event_id: params[:id]) 
+      
+# If user does not already belong to the event, add him in
+      if @user.events.find_by_id(@event.id) == nil
+        @user.events_users.create(event_id: @event.id, user_id: current_user.id )
+      end
+    else 
+      redirect_to action: "index" 
     end
-    @groups = @event.groups()
+    @groups = Event.joins(:group).all
   end
 
   def new
@@ -22,14 +36,10 @@ class EventsController < ApplicationController
   end
 
   def create
-
     # @event = Event.new(event_params)
     @user = User.where(id: current_user.id).first
     @event = @user.events.create(event_params)
     @event.active = true
-
-    # taken from https://web.archive.org/web/20121026000606/http://blog.logeek.fr/2009/7/2/creating-small-unique-tokens-in-ruby
-    #@event.event_id = rand(36**8).to_s(36)
     @event.event_id = create_event_id
 
     if (@event.save)
@@ -53,7 +63,6 @@ class EventsController < ApplicationController
     @event.show = false
     @event.save
     redirect_to events_path
-
   end
 
   private 
