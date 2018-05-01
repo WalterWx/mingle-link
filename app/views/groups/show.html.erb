@@ -1,6 +1,7 @@
 <div class="ui container">
 	<p id="group_userlisting_title">People to connect with in the <%= @group.title %><p>
 
+<%= link_to 'Edit', edit_event_group_path, class: "ui teal mini button" %><br>
 	<% @list.each do |user| %>
 	<div class="ui card">
 		<div class="content">
