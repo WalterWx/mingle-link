@@ -1,7 +1,7 @@
 <%= @group.title %><br>
 <%= @group.description%><br>
 
-<%= link_to 'Edit', edit_event_group_path %><br>
+<%= link_to 'Edit', edit_event_group_path, class: "ui teal mini button" %><br>
 
 <% @list.each do |user| %>
     <%= user.first_name %><br />
