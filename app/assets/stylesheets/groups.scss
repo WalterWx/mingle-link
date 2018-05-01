@@ -17,18 +17,34 @@ $brown-color: #3E260C;
 	font-weight: 800;
 	}
 
-#group_buttons {
-
+#group_button1, #group_button2 {
 	display: flex;
-	justify-content: space-between;
-		a {
-		color: white;
-		}
+	justify-content: space-evenly;
 }
 
-#edit_group_header {
+
+#edit_group_header, #group_userlisting_title {
 	font: 100% $font-stack;
 	text-align: center;
 	font-size: 22px;
 	color: $teal-color;
+}
+
+
+#user_details {
+	padding-top: 10px;
+}
+
+#user_image {
+	height: 20%;
+	width: 20%;
+}
+
+#linkedin_button {
+	background-color: $teal-color;
+
+	a {
+		color: white;
+		}
+
 }

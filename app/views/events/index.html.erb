@@ -27,11 +27,12 @@
 <div class="ui horizontal divider">Upcoming Events</div>
 
 	<% @events.each do |event| %>
+	<% (Time.zone.now.to_date...event.datetime_start).count %>
+				<% time_left = (Time.zone.now.to_date...event.datetime_start).to_a.size %>
+	<% if (event.datetime_start - Time.zone.now.to_date >= 0) %>
 	<div class="ui raised card">
 		<div class="content">
 			<div class="ui top right attached label">
-				<% (Time.zone.now.to_date...event.datetime_start).count %>
-				<% time_left = (Time.zone.now.to_date...event.datetime_start).to_a.size %> 
 					<% if (time_left == 0) %>
 					<p> Today </p>
 					<% else %>
@@ -55,6 +56,31 @@
 
 				
 			</div>
+		<% end %>
+		<% end %>
+		<% end %>
+		<% end %>
+	</div>
+</div>
+
+
+<div class="ui horizontal divider">Past Events</div>
+<div class="ui container" id="cards">
+		<div class="ui raised card">
+	<% @events.each do |event| %>
+	<% (Time.zone.now.to_date...event.datetime_start).count %>
+				<% time_left = (Time.zone.now.to_date...event.datetime_start).to_a.size %>
+	<% if (event.datetime_start - Time.zone.now.to_date < 0) %>
+
+		<div class="content">
+		<%= link_to event_path(event) do %>
+			<% if (event.active != false) %>
+				<div class="meta"><%= event.datetime_start.to_formatted_s(:rfc822) %> to <%= event.datetime_end.to_formatted_s(:rfc822) %></div>
+				
+				<div class="meta"><%= event.location.titleize %></div>
+				<div class="header" id="header"><%= event.title.titleize %></div>
+			</div>
+		<% end %>
 		<% end %>
 		<% end %>
 		<% end %>
