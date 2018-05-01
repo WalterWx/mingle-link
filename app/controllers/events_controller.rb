@@ -15,8 +15,8 @@ class EventsController < ApplicationController
             @event = Event.find_by_id(params[:id]) 
 
             # If a link is used
-        elsif Event.find_by( event_id: params[:id]) != nil
-            @event = Event.find_by( event_id: params[:id]) 
+        elsif Event.find_by( event_id: params[:event_id]) != nil
+            @event = Event.find_by( event_id: params[:event_id]) 
 
             # If user does not already belong to the event, add him in
             if @user.events.find_by_id(@event.id) == nil
