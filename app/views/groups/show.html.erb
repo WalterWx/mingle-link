@@ -1,9 +1,19 @@
-<%= @group.title %><br>
-<%= @group.description%><br>
+<div class="ui container">
+	<p id="group_userlisting_title">People to connect with in the <%= @group.title %><p>
 
 <%= link_to 'Edit', edit_event_group_path, class: "ui teal mini button" %><br>
-
-<% @list.each do |user| %>
-    <%= user.first_name %><br />
-    <a href="<%= user.public_profile_url %>">Link Up!</a>
+	<% @list.each do |user| %>
+	<div class="ui card">
+		<div class="content">
+					<img class="ui tiny circular floated left image" id="user_image" src="<%= user.image %>">
+					<div class="ui container" id="user_details">
+						<div class="center aligned header"><%= user.first_name %> <%= user.last_name %><br /></div>
+						<div class="center aligned description">
+							<p><%= user.description %></p>
+						</div>
+					</div>
+				</div>
+			<button class="ui bottom attached button" id="linkedin_button"><a href="<%= user.public_profile_url %>">Connect on LinkedIn</a></button>
+	</div>
+	
 <% end %>
