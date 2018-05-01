@@ -8,25 +8,27 @@
             <br>
             <%= link_to 'Edit', edit_event_group_path(group.event, group), class: "ui teal fluid mini button" %>
             <div class="ui divider"></div>
+
             <div class="ui container" id='group_button1'>
             <div><%= link_to 'View all group members', event_group_path(group.event, group), class: "ui mini button"%>
         </div>
     </div>
             <div class="ui divider"></div>
             <div class="ui container" id='group_button2'>
+              <% if @event.events_users.first.user_role == 'owner' %>
                 <%= link_to 'Remove', [group.event, group], 
                     method: :delete,
                     data: {confirm: 'Are you sure?'}, class: "ui teal mini button" %>
-                
+              <% end %>
+
                 <% if GroupsUser.where("user_id = ? AND group_id = ?", current_user.id, group.id).empty? %>
                     <%= link_to 'Join', '/' + group.event.id.to_s + '/' + group.id.to_s,
                         method: :post, class: "ui teal mini button" %>
-        </div>
-    <% else %>
-        <%= link_to 'Exit', '/' + group.event.id.to_s + '/' + group.id.to_s,
-            method: :delete, class: "ui teal mini button"%>
-    <% end %>
-        </div>
+                <% else %>
+                    <%= link_to 'Exit', '/' + group.event.id.to_s + '/' + group.id.to_s,
+                    method: :delete, class: "ui teal mini button"%>
+                <% end %>
+            </div>
         </div>
     <% end %>
 <% end %>
